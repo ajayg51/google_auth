@@ -5,6 +5,7 @@ import 'package:common_layout_setup_kit/utils/extensions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_auth/screens/login_screen_controller.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
