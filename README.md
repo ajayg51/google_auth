@@ -1,16 +1,37 @@
 # google_auth
 
-A new Flutter project.
+## added google_services.json in android/app
+## build.gradle (project-level)
 
-## Getting Started
+```
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.android.tools.build:gradle:7.3.0'
+        classpath 'com.google.gms:google-services:4.3.8'
+    }
+```
 
-This project is a starting point for a Flutter application.
+## build.gradle (app-level)
 
-A few resources to get you started if this is your first Flutter project:
+```
+  
+dependencies {
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
+    // implementation("com.google.firebase:firebase-analytics")
+}
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+apply plugin: 'com.google.gms.google-services'
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+
+## manifest file
+
+```
+  <!-- permissions start -->
+    
+    <uses-permission android:name="android.permission.INTERNET" />
+    
+    <!-- permissions end -->
+
+```
