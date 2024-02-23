@@ -24,17 +24,18 @@ class LoginScreenController extends GetxController {
   }
 
   Future<void> googleSignIn() async {
-    error.value = "start";
+    error.value += " :: start";
+    update();
 
     final GoogleSignInAccount? googleSignInAccount =
         await GoogleSignIn().signIn();
 
-    error.value = "here 0";
     try {
       final GoogleSignInAuthentication? googleSignInAuthentication =
           await googleSignInAccount?.authentication;
 
-      error.value = "here 1";
+      error.value += "  :: here 1";
+      update();
 
       final AuthCredential credential = GoogleAuthProvider.credential(
         accessToken: googleSignInAuthentication?.accessToken,
@@ -43,12 +44,16 @@ class LoginScreenController extends GetxController {
 
       userCredential =
           await FirebaseAuth.instance.signInWithCredential(credential);
+
+      error.value +=  "${userCredential?.user.toString()} :: ERR :: ";
+
     } catch (e) {
-      error.value = "here 2";
+      error.value += " :: here 2 $e";
+      update();
+    } finally {
+      isLoading.value = false;
+      error.value += "     :: ending";
+      update();
     }
-
-    isLoading.value = false;
-
-    error.value = "ending";
   }
 }

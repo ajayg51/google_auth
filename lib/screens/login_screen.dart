@@ -31,7 +31,7 @@ class LoginScreen extends StatelessWidget {
                   if (controller.isLoading.value)
                     const CircularProgressIndicator(),
                 ],
-              );
+              ).padSymmetric(horizontalPad: 12);
             }),
           ),
         ),
