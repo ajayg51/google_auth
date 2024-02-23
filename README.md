@@ -1,5 +1,11 @@
 # google_auth
 
+#  (Very important) 
+
+```
+    Add OAuth GCP config  --- app-name == Project ID firebase console
+```
+
 ## added google_services.json in android/app
 ## build.gradle (project-level)
 
